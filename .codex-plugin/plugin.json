@@ -1,7 +1,7 @@
 {
   "name": "render",
   "version": "0.1.1",
-  "description": "Skills for deploying, debugging, monitoring, and migrating apps on Render.",
+  "description": "Skills for deploying, debugging, monitoring, and migrating apps on Render. Includes a shared skill for running and inspecting tasks in Render Sandboxes.",
   "author": {
     "name": "Render",
     "email": "support@render.com",
@@ -16,16 +16,20 @@
     "cloud",
     "blueprint",
     "monitoring",
-    "debugging"
+    "debugging",
+    "sandboxes"
   ],
   "skills": "./skills/",
   "interface": {
     "displayName": "Render",
     "shortDescription": "Deploy, debug, monitor, and migrate apps on Render.",
-    "longDescription": "Provides skills for deploying apps with Blueprints, debugging failed deploys, monitoring service health and metrics, building Render Workflows, and migrating from Heroku.",
+    "longDescription": "Provides skills for deploying apps with Blueprints, debugging failed deploys, monitoring service health and metrics, building Render Workflows, and migrating from Heroku. Run and inspect tasks in disposable Render Sandboxes.",
     "developerName": "Render",
     "category": "Developer Tools",
-    "capabilities": ["Interactive", "Write"],
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
     "websiteURL": "https://render.com/",
     "privacyPolicyURL": "https://render.com/privacy",
     "termsOfServiceURL": "https://render.com/terms",
@@ -36,5 +40,6 @@
       "Debug a failed Render deployment."
     ],
     "logo": "./assets/logo.svg"
-  }
+  },
+  "mcpServers": "./.mcp.json"
 }

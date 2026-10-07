@@ -105,3 +105,13 @@ GitHub Actions also runs `.github/workflows/sync-skills.yml` each day and opens 
 ## License
 
 MIT. See [LICENSE](LICENSE).
+
+## Run a task in a Render Sandbox
+
+Ask: "Run a small Python script in a Render Sandbox with networking disabled, show the result, and clean it up."
+
+The bundled `render-sandboxes` skill uses the existing Render connection when it exposes sandbox tools. Otherwise, it checks for the Render CLI sandbox commands. Render MCP login and CLI login are separate. The skill reports which path it used and whether cleanup succeeded.
+
+Domain allow-lists require sandbox MCP tools that expose `allowedDomains`; the CLI 2.28.0 fallback supports `allow-all` and `deny-all`. The skill will report a missing capability instead of silently weakening the restriction.
+
+For maintainers: edit the skill in [render-oss/skills](https://github.com/render-oss/skills) through its contribution workflow, then sync it here. This plugin copy is generated from that shared source. Sandbox MCP tooling must also be deployed before the hosted connection can use it.

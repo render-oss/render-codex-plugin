@@ -5,6 +5,8 @@ Use Render from Codex to deploy apps, validate `render.yaml`, debug failed deplo
 ## What you get
 
 - Bundled Render skills for deployment, debugging, monitoring, migrations, and workflows
+- OAuth-enabled Render MCP server for Codex, surfaced by the plugin manifest
+- Required ChatGPT app mapping for the hosted Render connector
 - A helper script at `scripts/validate-render-yaml.sh` for `render blueprints validate`
 - Plugin metadata and assets for Codex installation
 
@@ -59,6 +61,7 @@ Use the plugin to:
 
 - Deploy a project to Render
 - Validate and troubleshoot `render.yaml`
+- Use Render MCP tools after completing Render OAuth in Codex
 - Debug failed deploys and check service status
 - Work through common setup and migration tasks
 
@@ -67,6 +70,16 @@ Good first prompts:
 - `Help me deploy this project to Render.`
 - `Help me validate my render.yaml for Render.`
 - `Debug a failed Render deployment.`
+
+## Render MCP in Codex
+
+This plugin declares the hosted Render MCP server in `.mcp.json` with the pre-registered Codex OAuth client id. After installing or updating the plugin, Codex can connect to `https://mcp.render.com/mcp` and prompt for Render OAuth when MCP tools are first used.
+
+No `RENDER_API_KEY` or `codex mcp add` command is needed for the plugin-provided MCP connection. Manual API-key setup is still useful for other AI tools or when using the Render CLI fallback.
+
+## ChatGPT app mapping
+
+This plugin also declares the Render ChatGPT app in `.app.json` so the plugin package can distribute the app mapping with the Render skills. The hosted app backend remains the Render MCP service at `https://mcp.render.com/mcp`; public ChatGPT availability still follows the normal app review and publishing flow.
 
 ## Set up the Render CLI
 

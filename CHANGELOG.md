@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.3.1 - 2026-10-09
+
+- Add `supportURL` and `composerIcon`, and shorten `shortDescription` to 30 characters, to meet OpenAI plugin directory requirements.
 ## 0.3.0 - 2026-10-08
 
 - Sync all 21 bundled skills from `render-oss/skills` release `skills-v1.0.0`: shared, single-sourced reference content across skills, doc retrieval that does not require `curl`, and the Render Workflows skill updated for SDK 1.x.

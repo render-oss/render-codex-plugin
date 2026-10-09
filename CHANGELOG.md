@@ -3,6 +3,9 @@
 ## 0.3.1 - 2026-10-09
 
 - Add `supportURL` and `composerIcon`, and shorten `shortDescription` to 30 characters, to meet OpenAI plugin directory requirements.
+- Set `name` to the OpenAI portal-assigned plugin ID `app-6a624c56bfe081918f7544f7d58f6faf`.
+- Remove the `oauth` block from `.mcp.json`; the OpenAI plugin portal configures MCP authentication in its connection settings.
+- Remove the ChatGPT app mapping (`apps` and `.app.json`), which the OpenAI plugin portal doesn't accept in submitted packages.
 ## 0.3.0 - 2026-10-08
 
 - Sync all 21 bundled skills from `render-oss/skills` release `skills-v1.0.0`: shared, single-sourced reference content across skills, doc retrieval that does not require `curl`, and the Render Workflows skill updated for SDK 1.x.

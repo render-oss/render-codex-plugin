@@ -5,7 +5,8 @@ Use Render from Codex to deploy apps, validate `render.yaml`, debug failed deplo
 ## What you get
 
 - Bundled Render skills for deployment, debugging, monitoring, migrations, and workflows
-- The hosted Render MCP server, surfaced by the plugin manifest
+- OAuth-enabled Render MCP server for Codex, surfaced by the plugin manifest
+- Required ChatGPT app mapping for the hosted Render connector
 - A helper script at `scripts/validate-render-yaml.sh` for `render blueprints validate`
 - Plugin metadata and assets for Codex installation
 
@@ -26,7 +27,7 @@ rsync -a ./ ~/.codex/plugins/render/
 
 2. Add the plugin to `~/.agents/plugins/marketplace.json`.
 
-If the file already exists, add the Render entry to the existing `plugins` array. The entry's `name` must match `name` in `.codex-plugin/plugin.json`.
+If the file already exists, add the `render` entry to the existing `plugins` array.
 
 ```json
 {
@@ -36,7 +37,7 @@ If the file already exists, add the Render entry to the existing `plugins` array
   },
   "plugins": [
     {
-      "name": "app-6a624c56bfe081918f7544f7d58f6faf",
+      "name": "render",
       "source": {
         "source": "local",
         "path": "./.codex/plugins/render"
@@ -72,9 +73,13 @@ Good first prompts:
 
 ## Render MCP in Codex
 
-This plugin declares the hosted Render MCP server at `https://mcp.render.com/mcp` in `.mcp.json`. The file contains only the server URL because the OpenAI plugin directory doesn't accept OAuth settings in the package; authentication for the directory listing is configured in the OpenAI plugin portal's MCP connection settings.
+This plugin declares the hosted Render MCP server in `.mcp.json` with the pre-registered Codex OAuth client id. After installing or updating the plugin, Codex can connect to `https://mcp.render.com/mcp` and prompt for Render OAuth when MCP tools are first used.
 
-Manual API-key setup is still useful for other AI tools or when using the Render CLI fallback.
+No `RENDER_API_KEY` or `codex mcp add` command is needed for the plugin-provided MCP connection. Manual API-key setup is still useful for other AI tools or when using the Render CLI fallback.
+
+## ChatGPT app mapping
+
+This plugin also declares the Render ChatGPT app in `.app.json` so the plugin package can distribute the app mapping with the Render skills. The hosted app backend remains the Render MCP service at `https://mcp.render.com/mcp`; public ChatGPT availability still follows the normal app review and publishing flow.
 
 ## Set up the Render CLI
 

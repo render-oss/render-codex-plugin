@@ -1,6 +1,6 @@
 {
   "name": "render",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Skills for deploying, debugging, monitoring, and migrating apps on Render.",
   "author": {
     "name": "Render",
@@ -23,7 +23,7 @@
   "apps": "./.app.json",
   "interface": {
     "displayName": "Render",
-    "shortDescription": "Deploy, debug, monitor, and migrate apps on Render.",
+    "shortDescription": "Deploy and manage Render apps",
     "longDescription": "Provides skills for deploying apps with Blueprints, debugging failed deploys, monitoring service health and metrics, building Render Workflows, and migrating from Heroku.",
     "developerName": "Render",
     "category": "Developer Tools",
@@ -32,6 +32,7 @@
       "Write"
     ],
     "websiteURL": "https://render.com/",
+    "supportURL": "https://render.com/contact",
     "privacyPolicyURL": "https://render.com/privacy",
     "termsOfServiceURL": "https://render.com/terms",
     "brandColor": "#8a05ff",
@@ -40,6 +41,7 @@
       "Help me validate my render.yaml for Render.",
       "Debug a failed Render deployment."
     ],
+    "composerIcon": "./assets/logo.svg",
     "logo": "./assets/logo.svg"
   }
 }

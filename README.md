@@ -115,6 +115,14 @@ Run the sync script to refresh `skills/` from [render-oss/skills](https://github
 
 GitHub Actions also runs `.github/workflows/sync-skills.yml` each day and opens a pull request when upstream skills change.
 
+To build the ZIP for the OpenAI plugin portal, bump `version` in `.codex-plugin/plugin.json`, commit, and run:
+
+```bash
+./scripts/build-submission-zip.sh
+```
+
+The script writes `dist/render-codex-plugin-<version>.zip` from `HEAD`. It sets `name` to the portal-assigned plugin ID and removes `apps`, `.app.json`, and the MCP `oauth` block, which the portal doesn't accept. MCP authentication for the directory listing is configured in the portal's connection settings.
+
 ## License
 
 MIT. See [LICENSE](LICENSE).
